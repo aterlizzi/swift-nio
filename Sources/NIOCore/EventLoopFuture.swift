@@ -877,7 +877,7 @@ extension EventLoopFuture {
     ///   - callback: The callback that is called when the `EventLoopFuture` is fulfilled.
     @inlinable
     @preconcurrency
-    public func whenComplete(_ callback: @escaping @Sendable (Result<Value, Error>) -> Void) {
+    public func whenComplete(_ callback: @escaping @Sendable (sending Result<Value, Error>) -> Void) {
         self._whenComplete {
             callback(self._value!)
             return CallbackList()
